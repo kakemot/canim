@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script src="sketch.js"></script>
+        <script src="limb.js"></script>
+        <script src="frame.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.js" integrity="sha512-+tu0+vUXyZX+S51npa//IN6znNTLZsBoy8mXn9WzHxfBqYMy6gOzzfTK0VqZf9O171RY9AJviHDokCnvEq8+1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/dist/box2d-html5.js"></script>
+        <script src="/dist/box2d-helper.js"></script>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    </head>
+    <body>
+        <div id="main">
+            <h2>Character animation</h2>
+            <div id="frames"></div>
+            <button onclick="addFrame(false)" id="addframe">Add frame</button>
+            <button onclick="addFrame(true)" id="addkeyframe">Add keyframe</button>
+            <button onclick="playAnimation()" id="play">Play animation</button>
+            <button onclick="stopAnimation()" id="stop">Stop animation</button>
+            <div>
+                Right upperleg <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="0" checked> |
+                Right lowerleg <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="1"> 
+            </div>
+            <div id="canvas"></div>
+            <h3>Settings</h3>
+            <input id="slide" type="range" min="0" max="360" step="1" value="90">
+            <div id="sliderAmount">1</div>
+        </div>
+        <script src="ui.js"></script>
+    </body>
+</html>
