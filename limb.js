@@ -1,10 +1,11 @@
 class Limb {
-    constructor(x, y, w, h, rotation, ax, ay) {
+    constructor(x, y, w, h, rotation_offset, ax, ay) {
         this.x = x;
         this.y = y;
         this.w = w;
         this.h = h;
-        this.rotation = rotation;
+        this.rotation = 0;
+        this.rotation_offset = rotation_offset;
         this.selected = false;
         this.hasParent = false;
         this.parent;
@@ -15,21 +16,26 @@ class Limb {
     display() {    
         // Draw it!
         push();
+        var radtodeg = this.rotation * (Math.PI/180);
+        this.anchorpoint_x = this.h * Math.cos(radtodeg) + this.x;
+        this.anchorpoint_y = this.h * Math.sin(radtodeg) + this.y;
+
         if (this.hasParent) {
           var radtodeg = parent.rotation * (Math.PI/180);
-          this.x = this.h * Math.cos(radtodeg) + this.parent.x;
-          this.y = this.h * Math.sin(radtodeg) + this.parent.y;
-        } 
+          this.x = this.parent.anchorpoint_x;
+          this.y = this.parent.anchorpoint_y;
+        }
+
         angleMode(DEGREES);
-        circle(this.x, this.y, 30);
         translate(this.x, this.y);
-        rotate(this.rotation);
+        rotate(this.rotation + this.rotation_offset);
         fill(127);
         stroke(200);
         strokeWeight(2);
         
-        image(limbpng, this.anchorpoint_x, this.anchorpoint_y, this.w, this.h);
-        
+        image(limbpng, 0, 0, this.w, this.h);
+        circle(0, 0, 30);
+        circle(this.anchorpoint_x, this.anchorpoint_y, 30);
         pop();
       }
 
