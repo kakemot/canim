@@ -7,6 +7,8 @@ var keyFrameButton = document.getElementById("addkeyframe");
 
 function selectBodypart(e) {
     selectedBodypart = parseInt(e.value);
+    slide.value = frames[selectedFrame].value[selectedBodypart];
+    sliderDiv.innerHTML = slide.value;
 }
 
 function changeValue() {
@@ -16,7 +18,7 @@ function changeValue() {
     console.log(selectedBodypart);
     limbs[selectedBodypart].setRotation(parseInt(slide.value));
 
-    frames[selectedFrame].value = parseInt(slide.value);
+    frames[selectedFrame].value[selectedBodypart] = parseInt(slide.value);
     calculateFrameValues();
     //[1].setRotation(slide.value/2);
 }
