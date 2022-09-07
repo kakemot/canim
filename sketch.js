@@ -4,12 +4,11 @@ let frames = [];
 let play = false;
 let currentFrame = 0;
 let selectedBodypart = 0;
-
 function setup() {
     limbpng = loadImage("/img/limb.png");
     var canvas = createCanvas(512, 512);
     canvas.parent('canvas');
-    let upperleg = new Limb(100, 200, 16, 64, 0, 0, 0)
+    let upperleg = new Limb(100, 200, 16, 64, 270, 0, 0)
     let lowerleg = new Limb(100, 264, 16, 64, 0, 0, 0);
     let foot = new Limb(100, 350, 16, 64, 0, 0, 0);
     lowerleg.parent = upperleg;
@@ -21,7 +20,6 @@ function setup() {
     limbs.push(upperleg);
     limbs.push(lowerleg);
     //limbs.push(foot);
-    changeValue();
 }
 
 function draw() {
