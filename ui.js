@@ -15,12 +15,17 @@ function changeValue() {
     sliderDiv.innerHTML = slide.value;
     console.log(slide.value);
     rotation = slide.value;
-    console.log(selectedBodypart);
     limbs[selectedBodypart].setRotation(parseInt(slide.value));
 
     frames[selectedFrame].value[selectedBodypart] = parseInt(slide.value);
     calculateFrameValues();
     //[1].setRotation(slide.value/2);
+}
+
+function updateValue() {
+    for (let i = 0; i < limbs.length; i++) {
+        limbs[i].setRotation(frames[selectedFrame].value[i]);
+    }
 }
 
 function generateFrame(frameNumber) {
@@ -45,9 +50,9 @@ function addFrame(isKeyframe) {
 }
 
 function goToFrame(frameNumber) {
-    slide.value = frames[frameNumber].value;
+    slide.value = frames[frameNumber].value[selectedBodypart];
     selectedFrame = frameNumber;
-    changeValue();
+    updateValue();
 
     frameDiv.innerHTML = "";
     for (let i=0; i<frames.length; i++) {

@@ -5,5 +5,6 @@ class Frame {
         this.value = [];
         this.value[0] = 0;
         this.value[1] = 0;
+        this.value[2] = 0;
     }
 }

@@ -10,15 +10,15 @@ function setup() {
     canvas.parent('canvas');
     let upperleg = new Limb(100, 200, 16, 64, 270, 0, 0)
     let lowerleg = new Limb(100, 264, 16, 64, 0, 0, 0);
-    let foot = new Limb(100, 350, 16, 64, 0, 0, 0);
+    let foot = new Limb(100, 350, 16, 32, 0, 0, 0);
+
     lowerleg.parent = upperleg;
     lowerleg.hasParent = true;
-
     foot.hasParent = true;
     foot.parent = lowerleg;
-
     limbs.push(upperleg);
     limbs.push(lowerleg);
+    limbs.push(foot);
     //limbs.push(foot);
 }
 
@@ -28,7 +28,6 @@ function draw() {
       limbs[i].display();
     }
     let timeStep = 1.0 / 30;
-  // 2nd and 3rd arguments are velocity and position iterations
   update();
 }
 
@@ -45,32 +44,30 @@ function update() {
 function calculateFrameValues() {
   var keyframeStartValue = 90;
   var count = 1;
-  for (let i = 0; i<frames.length; i++) {
-    if (frames[i].isKeyframe == true) {
-      keyframeStartValue = frames[i].value;
-      count = 1;
-    } else {
-      var obj = getDistanceToNextKeyFrame(i);
-      console.log(obj);
-      var result = keyframeStartValue + Math.round((obj.value - keyframeStartValue) / obj.originalDistance * count);
-      frames[i].value = result;
-      console.log(keyframeStartValue);
-      console.log(obj.value);
-      console.log(Math.round((obj.value - keyframeStartValue) / obj.originalDistance * count));
-      console.log(obj);
-      console.log(result*1);
-      count ++;
+  for (let l = 0; l<limbs.length; l++) {
+    for (let i = 0; i<frames.length; i++) {
+      if (frames[i].isKeyframe == true) {
+        keyframeStartValue = frames[i].value[l];
+        count = 1;
+      } else {
+        var obj = getDistanceToNextKeyFrame(i, l);
+        console.log(obj);
+        var result = keyframeStartValue + Math.round((obj.value - keyframeStartValue) / obj.originalDistance * count);
+        frames[i].value[l] = result;
+        console.log("Frame " + i + " limb" + l + " result " + result);
+        count ++;
+      }
     }
   }
 }
 
-function getDistanceToNextKeyFrame(frame = 0) {
+function getDistanceToNextKeyFrame(frame = 0, limb = 0) {
   var keyframeValue = 0;
   for (let i = frame; i<frames.length; i++) {
     if (frames[i].isKeyframe) {
       var distance = i - frame; //get distance from current frame
       var originalDistance = i - getPreviousKeyFrame(frame); //get distance from keyframe to keyframe
-      keyframeValue = frames[i].value;
+      keyframeValue = frames[i].value[limb];
     return {originalDistance: originalDistance, distance: distance, value: keyframeValue};
     }
   }
