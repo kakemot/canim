@@ -1,5 +1,5 @@
 class Limb {
-    constructor(x, y, w, h, rotation_offset, ax, ay) {
+    constructor(x, y, w, h, rotation_offset, ax, ay, side = "none") {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -11,7 +11,7 @@ class Limb {
         this.parent;
         this.anchorpoint_x = 0;
         this.anchorpoint_y = 0;
-
+        this.side = side;
         this.mount_x = ax;
         this.mount_y = ay;
         this.id = "";
@@ -21,21 +21,23 @@ class Limb {
         // Draw it!
         push();
         var radtodeg = this.rotation * (Math.PI/180);
-        this.anchorpoint_x = this.h * Math.cos(radtodeg) + this.x + this.mount_x;
-        this.anchorpoint_y = this.h * Math.sin(radtodeg) + this.y + this.mount_y;
+        this.anchorpoint_x = this.h * Math.cos(radtodeg) + this.x;
+        this.anchorpoint_y = this.h * Math.sin(radtodeg) + this.y;
 
         if (this.hasParent) {
-          this.x = this.parent.anchorpoint_x;
-          this.y = this.parent.anchorpoint_y;
+          var radtodeg = this.parent.rotation * (Math.PI/180);
+          this.x = (this.parent.h + this.mount_x) * Math.cos(radtodeg) + this.parent.x;
+          this.y = (this.parent.h + this.mount_y) * Math.sin(radtodeg) + this.parent.y;
         }
+
 
         angleMode(DEGREES);
         translate(this.x, this.y);
-        circle(0, 0, 30);
+        //circle(0, 0, 30);
         rotate(this.rotation + this.rotation_offset);
-        fill(127);
-        stroke(200);
-        strokeWeight(2);
+        if (this.side == "left") {
+          tint(0, 153, 204);
+        }
         image(limbpng, 0, 0, this.w, this.h);
         
         pop();

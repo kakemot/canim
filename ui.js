@@ -11,6 +11,13 @@ function selectBodypart(e) {
     sliderDiv.innerHTML = slide.value;
 }
 
+function initValue() {
+    for (let i=0; i<limbs.length; i++) {
+        limbs[i].setRotation(90);
+        console.log("asd");
+    }
+}
+
 function changeValue() {
     sliderDiv.innerHTML = slide.value;
     console.log(slide.value);
