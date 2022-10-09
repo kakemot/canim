@@ -11,32 +11,85 @@
     </head>
     </head>
     <body>
-        <div id="main">
+        <div class="main">
             <h2>Character animation</h2>
-            <div id="frames"></div>
+            <div class="frames-container" id="frames"></div>
             <button onclick="addFrame(false)" id="addframe">Add frame</button>
             <button onclick="addFrame(true)" id="addkeyframe">Add keyframe</button>
             <button onclick="playAnimation()" id="play">Play animation</button>
             <button onclick="stopAnimation()" id="stop">Stop animation</button>
-            <div>
-                Head <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="0" checked> |
-                Body <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="1" checked> |
+            <div class="bodypart-section">
+                <div class="bodypart-select">Head <input class="slider" oninput="changeValue(this, 0)" id="slide0" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Body <input class="slider" oninput="changeValue(this, 1)" id="slide1" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
             </div>
-            <div>
-                Right upperleg <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="2" checked> |
-                Right lowerleg <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="3"> 
-                Right foot <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="4"> 
+            <div class="bodypart-section">
+                <div class="bodypart-select">Left Upperarm <input class="slider" oninput="changeValue(this, 2)" id="slide2" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Left Lowerarm <input class="slider" oninput="changeValue(this, 3)" id="slide3" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Right Upperarm <input class="slider" oninput="changeValue(this, 4)" id="slide4" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Right Lowerarm <input class="slider" oninput="changeValue(this, 5)" id="slide5" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+            </div>
+            <div class="bodypart-section">
+                <div class="bodypart-select">Right upperleg <input class="slider" oninput="changeValue(this, 6)" id="slide6" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Right lowerleg <input class="slider" oninput="changeValue(this, 7)" id="slide7" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Right foot <input class="slider" oninput="changeValue(this, 8)" id="slide8" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
             </div>
 
-            <div>
-                Left upperleg <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="5" checked> |
-                Left lowerleg <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="6"> 
-                Left foot <input onchange="selectBodypart(this)" type="radio" name="bodypart" value="7"> 
+            <div class="bodypart-section">
+                <div class="bodypart-select">Left upperleg <input class="slider" oninput="changeValue(this, 9)" id="slide9" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Left lowerleg <input class="slider" oninput="changeValue(this, 10)" id="slide10" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Left foot <input class="slider" oninput="changeValue(this, 11)" id="slide11" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
             </div>
             <div id="canvas"></div>
             <h3>Settings</h3>
-            <input id="slide" type="range" min="-360" max="360" step="1" value="90">
-            <div id="sliderAmount">1</div>
+            
         </div>
         <script src="ui.js"></script>
     </body>
