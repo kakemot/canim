@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 .main {
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -5,6 +9,18 @@
     margin-right: auto;
     width: 80%;
   }
+
+  header {
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    background-color: rgb(241, 241, 241);
+    height: 50px;
+  }
+
+  footer {
+    padding: 20px;
+  }
+
   
   .selected {
       border-width: 3px !important;

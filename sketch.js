@@ -40,10 +40,8 @@ function calculateFrameValues() {
         count = 1;
       } else {
         var obj = getDistanceToNextKeyFrame(i, l);
-        console.log(obj);
         var result = keyframeStartValue + Math.round((obj.value - keyframeStartValue) / obj.originalDistance * count);
         frames[i].value[l] = result;
-        console.log("Frame " + i + " limb" + l + " result " + result);
         count ++;
       }
     }

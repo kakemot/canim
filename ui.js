@@ -12,6 +12,24 @@ function initValue() {
     }
 }
 
+function setWidth(e, bodypart) {
+    limbs[bodypart].w = parseInt(e.value);
+}
+
+function setHeight(e, bodypart) {
+    limbs[bodypart].h = parseInt(e.value);
+
+    if (bodypart == 6) {
+        var value = -parseInt(e.value);
+        limbs[0].mount_x = value;
+        limbs[0].mount_y = value;
+        limbs[5].mount_x = value;
+        limbs[5].mount_y = value;
+        limbs[7].mount_x = value;
+        limbs[7].mount_y = value;
+    }
+}
+
 function changeValue(e, bodypart) {
     e.nextElementSibling.innerHTML = e.value + "°";
     rotation = e.value;
@@ -43,6 +61,14 @@ function generateFrame(frameNumber) {
 
 function addFrame(isKeyframe) {
     frames.push(new Frame(isKeyframe));
+    frameDiv.innerHTML = "";
+    for (let i=0; i<frames.length; i++) {
+        frameDiv.innerHTML += generateFrame(i);
+    }
+}
+
+function deleteFrame() {
+    frames.splice(selectedFrame, 1);
     frameDiv.innerHTML = "";
     for (let i=0; i<frames.length; i++) {
         frameDiv.innerHTML += generateFrame(i);

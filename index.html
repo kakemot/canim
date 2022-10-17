@@ -11,59 +11,65 @@
     </head>
     </head>
     <body>
+        <header>
+            <div class="header-content">
+                <h2>Character animation</h2>
+            </div>
+        </header>
         <div class="main">
-            <h2>Character animation</h2>
+
             <div class="frames-container" id="frames"></div>
             <button onclick="addFrame(false)" id="addframe">Add frame</button>
+            <button onclick="deleteFrame()" id="delframe">Del frame</button>
             <button onclick="addFrame(true)" id="addkeyframe">Add keyframe</button>
             <button onclick="playAnimation()" id="play">Play animation</button>
             <button onclick="stopAnimation()" id="stop">Stop animation</button>
             <div class="bodypart-section">
-                <div class="bodypart-select">Head <input class="slider" oninput="changeValue(this, 0)" id="slide0" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Head <input class="slider" oninput="changeValue(this, 5)" id="slide0" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
                 </div>
-                <div class="bodypart-select">Body <input class="slider" oninput="changeValue(this, 1)" id="slide1" type="range" min="-360" max="360" step="1" value="90">
-                    <div class="slider-amount">
-                        90°
-                    </div>
-                </div>
-            </div>
-            <div class="bodypart-section">
-                <div class="bodypart-select">Left Upperarm <input class="slider" oninput="changeValue(this, 2)" id="slide2" type="range" min="-360" max="360" step="1" value="90">
-                    <div class="slider-amount">
-                        90°
-                    </div>
-                </div>
-                <div class="bodypart-select">Left Lowerarm <input class="slider" oninput="changeValue(this, 3)" id="slide3" type="range" min="-360" max="360" step="1" value="90">
-                    <div class="slider-amount">
-                        90°
-                    </div>
-                </div>
-                <div class="bodypart-select">Right Upperarm <input class="slider" oninput="changeValue(this, 4)" id="slide4" type="range" min="-360" max="360" step="1" value="90">
-                    <div class="slider-amount">
-                        90°
-                    </div>
-                </div>
-                <div class="bodypart-select">Right Lowerarm <input class="slider" oninput="changeValue(this, 5)" id="slide5" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Body <input class="slider" oninput="changeValue(this, 6)" id="slide1" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
                 </div>
             </div>
             <div class="bodypart-section">
-                <div class="bodypart-select">Right upperleg <input class="slider" oninput="changeValue(this, 6)" id="slide6" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Left Upperarm <input class="slider" oninput="changeValue(this, 0)" id="slide2" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
                 </div>
-                <div class="bodypart-select">Right lowerleg <input class="slider" oninput="changeValue(this, 7)" id="slide7" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Left Lowerarm <input class="slider" oninput="changeValue(this, 1)" id="slide3" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
                 </div>
-                <div class="bodypart-select">Right foot <input class="slider" oninput="changeValue(this, 8)" id="slide8" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Right Upperarm <input class="slider" oninput="changeValue(this, 7)" id="slide4" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Right Lowerarm <input class="slider" oninput="changeValue(this, 8)" id="slide5" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+            </div>
+            <div class="bodypart-section">
+                <div class="bodypart-select">Right upperleg <input class="slider" oninput="changeValue(this, 9)" id="slide6" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Right lowerleg <input class="slider" oninput="changeValue(this, 10)" id="slide7" type="range" min="-360" max="360" step="1" value="90">
+                    <div class="slider-amount">
+                        90°
+                    </div>
+                </div>
+                <div class="bodypart-select">Right foot <input class="slider" oninput="changeValue(this, 11)" id="slide8" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
@@ -71,26 +77,37 @@
             </div>
 
             <div class="bodypart-section">
-                <div class="bodypart-select">Left upperleg <input class="slider" oninput="changeValue(this, 9)" id="slide9" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Left upperleg <input class="slider" oninput="changeValue(this, 2)" id="slide9" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
                 </div>
-                <div class="bodypart-select">Left lowerleg <input class="slider" oninput="changeValue(this, 10)" id="slide10" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Left lowerleg <input class="slider" oninput="changeValue(this, 3)" id="slide10" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
                 </div>
-                <div class="bodypart-select">Left foot <input class="slider" oninput="changeValue(this, 11)" id="slide11" type="range" min="-360" max="360" step="1" value="90">
+                <div class="bodypart-select">Left foot <input class="slider" oninput="changeValue(this, 4)" id="slide11" type="range" min="-360" max="360" step="1" value="90">
                     <div class="slider-amount">
                         90°
                     </div>
                 </div>
             </div>
             <div id="canvas"></div>
-            <h3>Settings</h3>
-            
+            <h3>Static settings</h3>
+            <div class="bodypart-set-size">
+                <h3>Head</h3>
+                Width <input oninput="setWidth(this, 5)" id="head-width" type="number" min="1" max="100" value="32"> px
+                Height <input oninput="setHeight(this, 5)" id="head-height" type="number" min="1" max="100" value="32"> px
+            </div>
+
+            <div class="bodypart-set-size">
+                <h3>Body</h3>
+                Body width <input oninput="setWidth(this, 6)" id="body-width" type="number" min="1" max="100" value="24"> px
+                Body height <input oninput="setHeight(this, 6)" id="body-height" type="number" min="1" max="100" value="80"> px
+            </div>
         </div>
+        <footer>Waduup</footer>
         <script src="ui.js"></script>
     </body>
 </html>
