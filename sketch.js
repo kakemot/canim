@@ -6,6 +6,8 @@ let currentFrame = 0;
 let selectedBodypart = 0;
 function setup() {
     limbpng = loadImage("/img/limb.png");
+    headpng = loadImage("/img/head.png");
+    legpng = loadImage("/img/leg.png");
     var canvas = createCanvas(512, 512);
     canvas.parent('canvas');
     buildBody();

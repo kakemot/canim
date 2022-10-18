@@ -15,6 +15,9 @@ class Limb {
         this.mount_x = ax;
         this.mount_y = ay;
         this.id = "";
+        this.sprite = limbpng;
+        this.xoffset = 0;
+        this.yoffset = 0;
     }
 
     display() {    
@@ -38,7 +41,7 @@ class Limb {
         if (this.side == "left") {
           tint(0, 153, 204);
         }
-        image(limbpng, 0, 0, this.w, this.h);
+        image(this.sprite, this.xoffset, this.yoffset, this.w, this.h);
         
         pop();
       }

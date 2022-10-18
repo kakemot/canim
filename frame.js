@@ -8,7 +8,7 @@ class Frame {
         this.value[2] = 90; //left upperleg
         this.value[3] = 90; //left lowerleg
         this.value[4] = 0; //left foot
-        this.value[5] = 0; //head
+        this.value[5] = 90; //head
         this.value[6] = 90; //body
         this.value[7] = 90; //right upperarm
         this.value[8] = 90; //right lowerarm
