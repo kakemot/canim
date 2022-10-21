@@ -41,6 +41,7 @@ class Limb {
         if (this.side == "left") {
           tint(0, 153, 204);
         }
+        rect(this.xoffset, this.yoffset, this.w, this.h);
         image(this.sprite, this.xoffset, this.yoffset, this.w, this.h);
         
         pop();

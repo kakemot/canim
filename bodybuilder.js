@@ -1,25 +1,27 @@
 function buildBody() {
-    let head = new Limb(100, 120, 32, 32, 270, -80, -80);
-    let body = new Limb(100, 120, 24, 80, 270, 0, 0);
+    let head = new Limb(100, 120, 32, 32, 270, -48, -48);
+    let body = new Limb(100, 120, 24, 48, 270, 0, 0);
 
-    let upperarm_r = new Limb(100, 200, 16, 32, 270, -80, -80, "right");
+    let upperarm_r = new Limb(100, 200, 16, 32, 270, -48, -48, "right");
     let lowerarm_r = new Limb(100, 200, 16, 32, 270, 0, 0, "right");
 
-    let upperarm_l = new Limb(100, 200, 16, 32, 270, -80, -80, "left");
+    let upperarm_l = new Limb(100, 200, 16, 32, 270, -48, -48, "left");
     let lowerarm_l = new Limb(100, 200, 16, 32, 270, 0, 0, "left");
 
     let upperleg_r = new Limb(100, 200, 16, 32, 270, 0, 0, "right");
     let lowerleg_r = new Limb(100, 264, 16, 32, 270, 0, 0, "right");
-    let foot_r = new Limb(100, 350, 16, 32, 270, 0, 0, "right");
+    let foot_r = new Limb(100, 350, 12, 24, 270, 0, 0, "right");
     
     let upperleg_l = new Limb(100, 200, 16, 32, 270, 0, 0, "left")
     let lowerleg_l = new Limb(100, 264, 16, 32, 270, 0, 0, "left");
-    let foot_l = new Limb(100, 350, 16, 32, 270, 0, 0, "left");
+    let foot_l = new Limb(100, 350, 12, 24, 270, 0, 0, "left");
     
+    body.sprite = bodypng;
+
     head.parent = body;
     head.sprite = headpng;
     head.hasParent = true;
-    head.xoffset = -head.w/2;
+    head.xoffset = -5;
     head.yoffset = -head.h;
     
     upperarm_r.parent = body;
@@ -33,8 +35,11 @@ function buildBody() {
 
     upperarm_l.parent = body;
     upperarm_l.hasParent = true;
+    upperarm_l.sprite = legpng;
     lowerarm_l.parent = upperarm_l;
     lowerarm_l.hasParent = true;
+    lowerarm_l.sprite = legpng;
+
 
     upperleg_r.parent = body;
     upperleg_r.hasParent = true;
@@ -49,12 +54,15 @@ function buildBody() {
     lowerleg_r.sprite = legpng;
     foot_r.hasParent = true;
     foot_r.parent = lowerleg_r;
+    foot_r.sprite = legpng;
     
     lowerleg_l.parent = upperleg_l;
     lowerleg_l.hasParent = true;
     lowerleg_l.sprite = legpng;
     foot_l.hasParent = true;
     foot_l.parent = lowerleg_l;
+    foot_l.sprite = legpng;
+
     limbs.push(upperarm_l);
     limbs.push(lowerarm_l);
     limbs.push(upperleg_l);

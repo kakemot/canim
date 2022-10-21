@@ -8,6 +8,7 @@ function setup() {
     limbpng = loadImage("/img/limb.png");
     headpng = loadImage("/img/head.png");
     legpng = loadImage("/img/leg.png");
+    bodypng = loadImage("/img/body.png");
     var canvas = createCanvas(512, 512);
     canvas.parent('canvas');
     buildBody();
