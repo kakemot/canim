@@ -9,40 +9,39 @@ class Limb {
         this.selected = false;
         this.hasParent = false;
         this.parent;
-        this.anchorpoint_x = 0;
-        this.anchorpoint_y = 0;
+        this.pivot_x = -w/2;
+        this.pivot_y = 0;
         this.side = side;
-        this.mount_x = ax;
-        this.mount_y = ay;
         this.id = "";
         this.sprite = limbpng;
-        this.xoffset = 0;
-        this.yoffset = 0;
+        this.xoffset = ax;
+        this.yoffset = ay;
     }
 
     display() {    
         // Draw it!
         push();
-        var radtodeg = this.rotation * (Math.PI/180);
-        this.anchorpoint_x = this.h * Math.cos(radtodeg) + this.x;
-        this.anchorpoint_y = this.h * Math.sin(radtodeg) + this.y;
 
         if (this.hasParent) {
-          var radtodeg = this.parent.rotation * (Math.PI/180);
-          this.x = (this.parent.h + this.mount_x) * Math.cos(radtodeg) + this.parent.x;
-          this.y = (this.parent.h + this.mount_y) * Math.sin(radtodeg) + this.parent.y;
-        }
+          var degtorad = this.parent.rotation * (Math.PI/180);
 
+          var rotatedxoffset = this.xoffset * Math.cos(degtorad) - this.yoffset * Math.sin(degtorad);
+          var rotatedyoffset = this.xoffset * Math.sin(degtorad) + this.yoffset * Math.cos(degtorad);
+      
+          this.x = this.parent.x + rotatedxoffset;
+          this.y = this.parent.y + rotatedyoffset;
+        }
 
         angleMode(DEGREES);
         translate(this.x, this.y);
         //circle(0, 0, 30);
         rotate(this.rotation + this.rotation_offset);
+        translate(this.pivot_x, this.pivot_y);
         if (this.side == "left") {
           tint(0, 153, 204);
         }
-        rect(this.xoffset, this.yoffset, this.w, this.h);
-        image(this.sprite, this.xoffset, this.yoffset, this.w, this.h);
+        //rect(0, 0, this.w, this.h);
+        image(this.sprite, 0, 0, this.w, this.h);
         
         pop();
       }
