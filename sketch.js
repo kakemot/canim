@@ -4,6 +4,9 @@ let frames = [];
 let play = false;
 let currentFrame = 0;
 let selectedBodypart = 0;
+let fps = 15;
+let fpsCount = 0;
+
 function setup() {
     limbpng = loadImage("/img/limb.png");
     headpng = loadImage("/img/head.png");
@@ -27,7 +30,16 @@ function displayObjects() {
 }
 
 function update() {
-  if (play == true) {
+
+  if (fpsCount >= 60/fps) {
+    shouldStep = true;
+    fpsCount = 0;
+  } else {
+    shouldStep = false;
+    fpsCount ++;
+  }
+
+  if (play == true && shouldStep == true) {
     currentFrame = (currentFrame == frames.length - 1 ? 0 : currentFrame + 1);
     goToFrame(currentFrame);
   }
