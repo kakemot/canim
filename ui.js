@@ -3,6 +3,7 @@ var slide = document.getElementById("slide"),
 sliderDiv = document.getElementById("sliderAmount"),
 frameDiv = document.getElementById("frames"),
 frameButton = document.getElementById("addframe");
+var frameOutput = document.getElementById("frame-output");
 var keyFrameButton = document.getElementById("addkeyframe");
 
 function initValue() {
@@ -51,7 +52,6 @@ function generateFrame(frameNumber) {
     var isKeyframe = (frames[frameNumber].isKeyframe === true ? 'keyframe' : '');
     var cssClass = 'class=" ' + isSelected + ' '+ isKeyframe +'"';
     var html = '<button ' + cssClass + ' onclick="goToFrame('+frameNumber+')" id="frame'+frameNumber+'">' + frameNumber + '</button>';
-    frames[frameNumber].html = html;
     return html;
 }
 
@@ -95,6 +95,17 @@ function playAnimation() {
 
 function stopAnimation() {
     play = false;
+}
+
+function saveAnimation() {
+        let object = {"frames": frames};
+        frameOutput.value = JSON.stringify(object);
+}
+
+function loadAnimation() {
+    let object = JSON.parse(frameOutput.value);
+    frames = object.frames;
+    calculateFrameValues();
 }
 
 addFrame(true);

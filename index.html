@@ -106,7 +106,16 @@
                 Body width <input oninput="setWidth(this, 6)" id="body-width" type="number" min="1" max="100" value="24"> px
                 Body height <input oninput="setHeight(this, 6)" id="body-height" type="number" min="1" max="100" value="80"> px
             </div>
+            <div class="animation-data">
+                <button onclick="saveAnimation()" id="save">Save animation</button>
+                <button onclick="loadAnimation()" id="save">Load animation</button>
+            </div>
+            <div class="animation-textbox">
+            <textarea id="frame-output" cols="100" rows="100" id="animation-json"></textarea>
         </div>
+        </div>
+
+
         <footer>Waduup</footer>
         <script src="ui.js"></script>
     </body>

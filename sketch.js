@@ -4,7 +4,7 @@ let frames = [];
 let play = false;
 let currentFrame = 0;
 let selectedBodypart = 0;
-let fps = 15;
+let fps = 30;
 let fpsCount = 0;
 
 function setup() {
