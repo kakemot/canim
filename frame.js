@@ -11,8 +11,8 @@ class Frame {
         this.value[5] = 90; //head
         this.value[6] = 90; //body
         this.value[7] = 90; //right upperarm
-        this.value[8] = 90; //right lowerarm
-        this.value[9] = 90; //right upperleg
+        this.value[8] = 90; //right upperleg
+        this.value[9] = 90; //right lowerarm
         this.value[10] = 90; //right lowerleg
         this.value[11] = 0; //right foot
     }

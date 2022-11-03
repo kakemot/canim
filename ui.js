@@ -67,6 +67,16 @@ function addFrame(isKeyframe) {
     }
 }
 
+function addFirstFrameToEnd() {
+    let frame = JSON.parse(JSON.stringify(frames[1]));
+    frame.isKeyframe = true;
+    frames.push(frame);
+    frameDiv.innerHTML = "";
+    for (let i=0; i<frames.length; i++) {
+        frameDiv.innerHTML += generateFrame(i);
+    }
+}
+
 function deleteFrame() {
     frames.splice(selectedFrame, 1);
     frameDiv.innerHTML = "";

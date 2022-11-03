@@ -10,7 +10,10 @@ let fpsCount = 0;
 function setup() {
     limbpng = loadImage("/img/limb.png");
     headpng = loadImage("/img/head.png");
-    legpng = loadImage("/img/leg.png");
+    upperarmpng = loadImage("/img/upperarm.png");
+    lowerarmpng = loadImage("/img/lowerarm.png");
+    upperlegpng = loadImage("/img/upperleg.png");
+    lowerlegpng = loadImage("/img/lowerleg.png");
     bodypng = loadImage("/img/body.png");
     var canvas = createCanvas(512, 512);
     canvas.parent('canvas');
